@@ -33,23 +33,6 @@ O layout está pronto, mas estes dados devem ser fornecidos ou validados pela cl
 - JavaScript puro
 - PWA (`manifest.json`)
 
-## Executar localmente
-
-Por ser um site estático, basta abrir `index.html` no navegador. Para testar em um servidor local, use qualquer extensão de servidor estático do editor, como Live Server.
-
-## Configuração de contatos
-
-Os dados principais ficam no início de [script.js](script.js):
-
-```js
-const clinic = {
-  whatsapp: '5527997880080',
-  phoneDisplay: '(27) 99788-0080'
-};
-```
-
-Também revise os endereços, telefones das duas unidades, e-mail e dados estruturados em [index.html](index.html) antes de publicar.
-
 ## Checklist de publicação
 
 - [ ] Confirmar telefones, e-mail, endereços e atendimento 24h.
