@@ -543,10 +543,11 @@ em {
   top:-60%;
   left:-50%;
   height:220%;
-  width:28px;
-  background:rgba(255,255,255,.48);
+  width:34px;
+  background:rgba(255,255,255,.62);
   transform:rotate(23deg);
-  animation:shine 4s ease-in-out infinite
+  animation:shine 4s ease-in-out infinite;
+  pointer-events:none
 }
 
 .section {
@@ -1374,7 +1375,7 @@ footer {
 .reveal img {
   opacity:0;
   transform:scale(1.07);
-  transition:opacity .85s ease .12s,transform 1.05s cubic-bezier(.22,.61,.36,1) .12s
+  transition:opacity .5s ease .04s,transform .7s cubic-bezier(.22,.61,.36,1) .04s
 }
 
 .reveal.visible {
@@ -1385,6 +1386,19 @@ footer {
 .reveal.visible img {
   opacity:1;
   transform:scale(1)
+}
+
+.word-reveal.words-ready .word {
+  display:inline-block;
+  opacity:0;
+  transform:translateY(.45em);
+  transition:opacity .3s ease,transform .38s cubic-bezier(.22,.61,.36,1);
+  transition-delay:calc(var(--line-index) * 120ms)
+}
+
+.word-reveal.words-visible .word {
+  opacity:1;
+  transform:none
 }
 
 .reveal-delay {

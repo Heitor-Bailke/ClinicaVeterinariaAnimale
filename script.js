@@ -36,6 +36,58 @@ const observer = new IntersectionObserver((entries) => entries.forEach((entry) =
 }), { threshold: 0.14 });
 document.querySelectorAll('.reveal').forEach((item) => observer.observe(item));
 
+const wordRevealTargets = document.querySelectorAll('h1, h2, .intro, .section-copy > p:not(.eyebrow), .services-heading-side > p, .units-copy, .specialist-banner p:not(.eyebrow), blockquote');
+const updateWordLines = (element) => {
+  const words = [...element.querySelectorAll('.word')];
+  let previousTop = null;
+  let lineIndex = 0;
+
+  words.forEach((word) => {
+    const currentTop = word.getBoundingClientRect().top;
+    if (previousTop !== null && Math.abs(currentTop - previousTop) > 2) lineIndex += 1;
+    word.style.setProperty('--line-index', lineIndex);
+    previousTop = currentTop;
+  });
+};
+
+const wordRevealObserver = new IntersectionObserver((entries, currentObserver) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('words-visible');
+    currentObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.25 });
+
+wordRevealTargets.forEach((element) => {
+  const textNodes = [];
+  const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+  let wordIndex = 0;
+  let currentNode;
+  while ((currentNode = walker.nextNode())) textNodes.push(currentNode);
+
+  textNodes.forEach((textNode) => {
+    if (!textNode.textContent.trim()) return;
+    const fragment = document.createDocumentFragment();
+    textNode.textContent.split(/(\s+)/).forEach((part) => {
+      if (/\s+/.test(part)) fragment.appendChild(document.createTextNode(part));
+      else {
+        const word = document.createElement('span');
+        word.className = 'word';
+        word.style.setProperty('--word-index', wordIndex++);
+        word.textContent = part;
+        fragment.appendChild(word);
+      }
+    });
+    textNode.replaceWith(fragment);
+  });
+
+  element.classList.add('word-reveal', 'words-ready');
+  updateWordLines(element);
+  wordRevealObserver.observe(element);
+});
+
+window.addEventListener('resize', () => wordRevealTargets.forEach(updateWordLines));
+
 const counters = document.querySelectorAll('[data-counter]');
 const animateCounter = (counter) => {
   const target = Number(counter.dataset.counter);
