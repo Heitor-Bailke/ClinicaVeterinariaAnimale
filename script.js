@@ -157,12 +157,13 @@ const nextTestimonial = document.querySelector('[data-testimonials-next]');
 
 if (testimonialTrack && previousTestimonial && nextTestimonial) {
   const step = () => testimonialTrack.querySelector('.testimonial').getBoundingClientRect().width + 16;
+  const visibleTestimonials = () => window.innerWidth <= 570 ? 1 : 3;
   const updateTestimonialControls = () => {
     previousTestimonial.disabled = testimonialTrack.scrollLeft < 4;
     nextTestimonial.disabled = testimonialTrack.scrollLeft + testimonialTrack.clientWidth >= testimonialTrack.scrollWidth - 4;
   };
-  previousTestimonial.addEventListener('click', () => testimonialTrack.scrollBy({ left: -step() * 3, behavior: 'smooth' }));
-  nextTestimonial.addEventListener('click', () => testimonialTrack.scrollBy({ left: step() * 3, behavior: 'smooth' }));
+  previousTestimonial.addEventListener('click', () => testimonialTrack.scrollBy({ left: -step() * visibleTestimonials(), behavior: 'smooth' }));
+  nextTestimonial.addEventListener('click', () => testimonialTrack.scrollBy({ left: step() * visibleTestimonials(), behavior: 'smooth' }));
   testimonialTrack.addEventListener('scroll', updateTestimonialControls, { passive: true });
   window.addEventListener('resize', updateTestimonialControls);
   updateTestimonialControls();
