@@ -16,34 +16,12 @@ O site está disponível em: https://heitor-bailke.github.io/ClinicaVeterinariaA
 - Oferece uma experiência responsiva, com acessibilidade básica, carregamento adiado de imagens secundárias e suporte a redução de movimento.
 - Inclui dados estruturados para ajudar buscadores a entenderem a clínica como negócio local em Colatina — ES.
 
-## Próximas atualizações recomendadas
-
-O layout está pronto, mas estes dados devem ser fornecidos ou validados pela clínica para que o site represente a operação com precisão e gere mais confiança:
-
-| Informação | Por que é importante |
-| --- | --- |
-| Domínio oficial | Permite substituir o endereço do GitHub Pages por um domínio próprio e adicionar URL canônica. |
-| Fotos reais da equipe, estrutura e atendimento | Substituem fotos de banco de imagem e criam reconhecimento local. |
-| Avaliações reais e link do Perfil da Empresa no Google | Transformam os números e depoimentos em prova social verificável. |
-| Lista completa de especialidades, exames e convênios | Evita dúvidas antes do contato e qualifica os pedidos recebidos. |
-| Horários de cada unidade e regra de urgência | Distingue claramente o hospital 24h da clínica. |
-| Política de privacidade e dados do responsável | Dá transparência ao formulário e apoia conformidade com a LGPD. |
-| Ferramenta de métricas | Mede cliques em WhatsApp, telefone, rotas e formulário para melhorar a conversão. |
-
 ## Tecnologias
 
 - HTML5 semântico
 - CSS3 responsivo
 - JavaScript puro
 - PWA (`manifest.json`)
-
-## Checklist de manutenção
-
-- [ ] Manter telefones, e-mail, endereços e horários atualizados.
-- [ ] Substituir fotos de banco por fotos autorizadas da Animale.
-- [ ] Validar avaliações, depoimentos e informações exibidas.
-- [ ] Adicionar política de privacidade e configurar métricas.
-- [ ] Testar formulário, mapas e links após cada atualização.
 
 ---
 
