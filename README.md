@@ -2,6 +2,10 @@
 
 Landing page institucional para a Animale Clínica Veterinária, criada para transformar visitas em conversas no WhatsApp e tornar o atendimento 24 horas, as especialidades e as unidades mais fáceis de encontrar.
 
+## Site publicado
+
+O site está disponível em: https://heitor-bailke.github.io/ClinicaVeterinariaAnimale/
+
 ![Prévia da Animale](assets/logo-animale.png)
 
 ## O que o site faz pela clínica
@@ -12,13 +16,13 @@ Landing page institucional para a Animale Clínica Veterinária, criada para tra
 - Oferece uma experiência responsiva, com acessibilidade básica, carregamento adiado de imagens secundárias e suporte a redução de movimento.
 - Inclui dados estruturados para ajudar buscadores a entenderem a clínica como negócio local em Colatina — ES.
 
-## Informações que precisam ser confirmadas antes da publicação
+## Próximas atualizações recomendadas
 
 O layout está pronto, mas estes dados devem ser fornecidos ou validados pela clínica para que o site represente a operação com precisão e gere mais confiança:
 
 | Informação | Por que é importante |
 | --- | --- |
-| Domínio oficial | Permite adicionar URL canônica, imagem de compartilhamento e e-mail profissional. |
+| Domínio oficial | Permite substituir o endereço do GitHub Pages por um domínio próprio e adicionar URL canônica. |
 | Fotos reais da equipe, estrutura e atendimento | Substituem fotos de banco de imagem e criam reconhecimento local. |
 | Avaliações reais e link do Perfil da Empresa no Google | Transformam os números e depoimentos em prova social verificável. |
 | Lista completa de especialidades, exames e convênios | Evita dúvidas antes do contato e qualifica os pedidos recebidos. |
@@ -33,14 +37,13 @@ O layout está pronto, mas estes dados devem ser fornecidos ou validados pela cl
 - JavaScript puro
 - PWA (`manifest.json`)
 
-## Checklist de publicação
+## Checklist de manutenção
 
-- [ ] Confirmar telefones, e-mail, endereços e atendimento 24h.
-- [ ] Inserir domínio, URL canônica e imagem de compartilhamento.
-- [ ] Trocar fotos de banco por fotos autorizadas da Animale.
-- [ ] Validar avaliações, depoimentos e métricas exibidas.
+- [ ] Manter telefones, e-mail, endereços e horários atualizados.
+- [ ] Substituir fotos de banco por fotos autorizadas da Animale.
+- [ ] Validar avaliações, depoimentos e informações exibidas.
 - [ ] Adicionar política de privacidade e configurar métricas.
-- [ ] Testar formulário, mapas e links no celular.
+- [ ] Testar formulário, mapas e links após cada atualização.
 
 ---
 
