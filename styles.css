@@ -1401,6 +1401,11 @@ footer {
   transform:none
 }
 
+.specialist-banner.reveal.visible h2 .word {
+  opacity:1;
+  transform:none
+}
+
 .reveal-delay {
   transition-delay:.12s
 }
