@@ -370,6 +370,14 @@ em {
   gap:9px
 }
 
+.card-rating {
+  animation:float-card 5s ease-in-out infinite
+}
+
+.card-hours {
+  animation:float-card 5s ease-in-out 1.4s infinite reverse
+}
+
 .floating-card strong {
   display:block;
   font-size:12px
@@ -777,6 +785,10 @@ em {
   box-shadow:var(--shadow);
   border-color:rgba(191,215,106,.55)
 }
+
+.service-card:nth-child(2) { transition-delay:.04s }
+.service-card:nth-child(3) { transition-delay:.08s }
+.service-card:nth-child(4) { transition-delay:.12s }
 
 .service-num {
   font-size:11px;
@@ -1321,6 +1333,38 @@ footer {
   transform:scale(1.1) rotate(8deg)
 }
 
+.back-to-top-float {
+  position:fixed;
+  right:25px;
+  bottom:155px;
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:rgba(255,255,255,.94);
+  color:var(--plum);
+  box-shadow:0 8px 20px rgba(47,33,47,.14);
+  font:700 20px "DM Sans",sans-serif;
+  cursor:pointer;
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(12px);
+  transition:opacity .25s,transform .25s,background .25s
+}
+
+.back-to-top-float.is-visible {
+  opacity:1;
+  pointer-events:auto;
+  transform:none
+}
+
+.back-to-top-float:hover {
+  background:var(--lime);
+  transform:translateY(-3px)
+}
+
 .reveal {
   opacity:0;
   transform:translateY(24px);
@@ -1358,6 +1402,11 @@ footer {
   70% {
   box-shadow:0 0 0 9px rgba(169,201,84,0)
 }
+}
+
+@keyframes float-card {
+  0%,100% { transform:translateY(0) rotate(0deg) }
+  50% { transform:translateY(-8px) rotate(1deg) }
 }
 
 @media(max-width:900px) {
@@ -1604,6 +1653,11 @@ footer {
 .instagram-float {
   right:20px;
   bottom:78px
+}
+
+.back-to-top-float {
+  right:20px;
+  bottom:140px
 }
 }
 

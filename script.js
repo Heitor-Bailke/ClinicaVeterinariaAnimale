@@ -36,6 +36,35 @@ const observer = new IntersectionObserver((entries) => entries.forEach((entry) =
 }), { threshold: 0.14 });
 document.querySelectorAll('.reveal').forEach((item) => observer.observe(item));
 
+const counters = document.querySelectorAll('[data-counter]');
+const animateCounter = (counter) => {
+  const target = Number(counter.dataset.counter);
+  const decimals = Number(counter.dataset.decimals || 0);
+  const suffix = counter.dataset.suffix || '';
+  const value = counter.querySelector('.counter-value') || counter;
+  const start = performance.now();
+  const duration = 1100;
+
+  const update = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    value.textContent = (target * eased).toFixed(decimals).replace('.', ',');
+    if (progress < 1) window.requestAnimationFrame(update);
+    else if (suffix) value.textContent += suffix;
+  };
+
+  window.requestAnimationFrame(update);
+};
+
+const counterObserver = new IntersectionObserver((entries, currentObserver) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    animateCounter(entry.target);
+    currentObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.7 });
+counters.forEach((counter) => counterObserver.observe(counter));
+
 const sections = [...document.querySelectorAll('main section[id]')];
 const navLinks = [...document.querySelectorAll('.nav a')];
 const navObserver = new IntersectionObserver((entries) => entries.forEach((entry) => {
@@ -102,10 +131,17 @@ if (whatsappButton) {
   });
 }
 
-const backToTop = document.querySelector('[data-scroll-top]');
-if (backToTop) {
+const backToTopButtons = document.querySelectorAll('[data-scroll-top]');
+backToTopButtons.forEach((backToTop) => {
   backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     document.querySelector('.brand')?.focus({ preventScroll: true });
   });
+});
+
+const floatingTopButton = document.querySelector('.back-to-top-float');
+if (floatingTopButton) {
+  const updateTopButton = () => floatingTopButton.classList.toggle('is-visible', window.scrollY > 420);
+  window.addEventListener('scroll', updateTopButton, { passive: true });
+  updateTopButton();
 }
