@@ -151,6 +151,23 @@ if (serviceTrack && previousService && nextService) {
   updateServiceControls();
 }
 
+const testimonialTrack = document.querySelector('[data-testimonials-track]');
+const previousTestimonial = document.querySelector('[data-testimonials-prev]');
+const nextTestimonial = document.querySelector('[data-testimonials-next]');
+
+if (testimonialTrack && previousTestimonial && nextTestimonial) {
+  const step = () => testimonialTrack.querySelector('.testimonial').getBoundingClientRect().width + 16;
+  const updateTestimonialControls = () => {
+    previousTestimonial.disabled = testimonialTrack.scrollLeft < 4;
+    nextTestimonial.disabled = testimonialTrack.scrollLeft + testimonialTrack.clientWidth >= testimonialTrack.scrollWidth - 4;
+  };
+  previousTestimonial.addEventListener('click', () => testimonialTrack.scrollBy({ left: -step() * 3, behavior: 'smooth' }));
+  nextTestimonial.addEventListener('click', () => testimonialTrack.scrollBy({ left: step() * 3, behavior: 'smooth' }));
+  testimonialTrack.addEventListener('scroll', updateTestimonialControls, { passive: true });
+  window.addEventListener('resize', updateTestimonialControls);
+  updateTestimonialControls();
+}
+
 const whatsappForm = document.querySelector('[data-whatsapp-form]');
 const appointmentLink = document.querySelector('.header-cta');
 
