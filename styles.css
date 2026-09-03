@@ -845,6 +845,11 @@ em {
   align-items:center
 }
 
+.specialist-banner > div {
+  position:relative;
+  z-index:1
+}
+
 .specialist-banner h2 {
   color:#fff
 }
@@ -871,7 +876,8 @@ em {
   top:0;
   object-fit:cover;
   mix-blend-mode:luminosity;
-  opacity:.88
+  opacity:.88;
+  z-index:0
 }
 
 .button-light {
@@ -1386,6 +1392,16 @@ footer {
 .reveal.visible img {
   opacity:1;
   transform:scale(1)
+}
+
+.specialist-banner.reveal.visible img {
+  opacity:.88
+}
+
+@media(max-width:900px) {
+  .specialist-banner.reveal.visible img {
+    opacity:.26
+  }
 }
 
 .word-reveal.words-ready .word {
